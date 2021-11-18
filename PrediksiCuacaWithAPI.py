@@ -42,6 +42,8 @@ def getCuaca(idWilayah):
     for i in range(len(y)):
         if tanggal in y[i]['jamCuaca']:
             # menampilkan prediksi cuaca untuk jam sekarang
+            if y[i+1]['jamCuaca'][1] == "00:00:00":
+                y[i+1]['jamCuaca'][1] = "24:00:00"
             if y[i]['jamCuaca'][1] <= nowHour <= y[i+1]['jamCuaca'][1]:
                 print(f'Tanggal: {tanggal}\nJam Sekarang: {nowHour}')
                 print(f'Cuaca: {y[i]["cuaca"]}')
